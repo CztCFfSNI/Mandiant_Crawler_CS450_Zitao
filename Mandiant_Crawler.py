@@ -1,19 +1,27 @@
+import os
 import requests
 from bs4 import BeautifulSoup
+from urllib.parse import urljoin
 
-def crawl_and_save(url, file_name):
-    response = requests.get(url)
-    soup = BeautifulSoup(response.content, 'html.parser')
+def crawl_and_save_blog_content(url, file_path):
+    resp = requests.get(url)
+    page_soup = BeautifulSoup(resp.content, 'html.parser')
+    content = page_soup.find('div', class_='resource-body').get_text(separator='\n', strip=True)
 
-    article_content = soup.find('div', class_='resource-body').find_all(['p', 'h1', 'h2', 'h3', 'li']) 
+    with open(file_path, 'w', encoding='utf-8') as file:
+        file.write(content)
 
-    with open(file_name, 'w', encoding='utf-8') as file:
-        for paragraph in article_content:
-            file.write(paragraph.get_text())
-            file.write('\n')
-    
-    print(f"Content saved to {file_name}")
+base_url = 'https://www.mandiant.com/resources/blog'
+response = requests.get(base_url)
+soup = BeautifulSoup(response.content, 'html.parser')
 
-url = 'https://www.mandiant.com/resources/blog/chinese-vmware-exploitation-since-2021'
-file_name = 'mandiant_article.txt'
-crawl_and_save(url, file_name)
+blog_links = soup.find_all('a', class_='resources-card')
+
+os.makedirs('mandiant_blogs', exist_ok=True)
+
+for i, link in enumerate(blog_links, start=1):
+    blog_url = urljoin(base_url, link['href'])
+    blog_title = link.get_text(strip=True)
+    file_name = f"mandiant_blog_{i}_{blog_title}.txt".replace("/", "_").replace(" ", "_")
+    file_path = os.path.join('mandiant_blogs', file_name)
+    crawl_and_save_blog_content(blog_url, file_path)

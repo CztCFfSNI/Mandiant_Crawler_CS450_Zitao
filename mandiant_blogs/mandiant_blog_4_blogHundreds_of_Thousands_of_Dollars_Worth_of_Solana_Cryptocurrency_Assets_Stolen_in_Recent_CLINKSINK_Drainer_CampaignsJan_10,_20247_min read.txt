@@ -1,0 +1,194 @@
+On January 3, 2024, Mandiant’s X social media account was taken over and subsequently used to distribute links to a cryptocurrency drainer phishing page. Working with X, we were able to regain control of the account and, based on our investigation over the following days, we found no evidence of malicious activity on, or compromise of, any Mandiant or Google Cloud systems that led to the compromise of this account. The following blog post provides additional insight into the drainer leveraged in this campaign, which we have dubbed CLINKSINK.
+Numerous actors have conducted campaigns since December 2023 that leverage the CLINKSINK drainer to steal funds and tokens from Solana (SOL) cryptocurrency users. Drainers are malicious scripts and smart contracts that actors can leverage to siphon funds and/or digital assets, such as non-fungible tokens from victims' cryptocurrency wallets after they are tricked into approving transactions.
+The identified campaigns included at least 35 affiliate IDs that are associated with a common drainer-as-a-service (DaaS), which uses CLINKSINK. The operator(s) of this DaaS provide the drainer scripts to affiliates in exchange for a percentage of the stolen funds, typically around 20%. We estimate the total value of assets stolen by affiliates in these recent campaigns to be at least $900,000 USD.
+Overview of CLINKSINK Drainer Campaigns
+In some recently observed campaigns, threat actors used social media and chat applications, including X and Discord, to distribute cryptocurrency-themed phishing pages that entice victims to interact with the CLINKSINK drainer. The observed CLINKSINK phishing domains and pages have leveraged a wide range of fake token airdrop-themed lures masquerading as legitimate cryptocurrency resources, such as Phantom, DappRadar, and BONK (Figures 1-3). These phishing pages have loaded the malicious CLINKSINK JavaScript drainer code to facilitate a connection to victim wallets and the subsequent theft of funds.
+When a victim visits one of these phishing pages, they are lured into connecting their wallet in order to claim a token airdrop. After connecting their wallet, the victim is then prompted to sign a transaction to the drainer service, which allows it to siphon funds from the victim.
+Figure 1: Sample $PHNTM airdrop-themed phishing page
+Figure 2: Sample DappRadar-themed phishing page
+Figure 3: Sample BONK-themed phishing page
+Initial Analysis of CLINKSINK
+The analyzed CLINKSINK file (MD5 hash 8650e83da50bd726f77311b729905c0d) is obfuscated by an unknown JavaScript obfuscator. On page load the sample verifies the victim has the Phantom Desktop Wallet installed. While some identified variants of CLINKSINK target multiple cryptocurrency wallets, this variant targets only Phantom. Once these checks pass, it makes a POST request to a URL at the domain ontopothers[.]com containing a highly offensive term.
+Note: The content of this POST request (Figure 4), an affiliate identifier encrypted with a hardcoded key (Figure 5), contains a highly offensive term that has been redacted.
+Figure 4: POST request content
+<REDACTED>: null696969
+Figure 5: Hardcoded key
+3i4gthiwkeoqgjnhkiq3owrjgowejrgkomjwekiorfgmjikoewqrjmgij3ritgjfhi3qwrenjgikerdfg
+The server responds with an AES-encrypted Telegram chat group ID and configuration. The decrypted response contained the following during our analysis (Figure 6), where the “cool” variable is a Telegram chat group ID and the second variable (named with a highly offensive term that has been redacted) is a configuration, which contains the affiliate and operator Solana wallet addresses, the percentage split of stolen funds, and configuration details used to control the behavior:
+Figure 6: Response with configuration
+cool: -1002032238930
+<REDACTED>: {"receiver":"B4y9s5E8rb79RH4BoQRTqQBPKxpEFxdkL1y3E5A9XYCK","min_value_assets":10,"min_v
+alue_connect":10,"button":{"connect":"Sign Up / Sign In with
+Phantom.","desktop_required":"Desktop required","connecting":"Connecting...","connected":"Claim
+Now","claiming":"Claiming...","no_funds":"Wallet has no funds to pay the transaction
+Fees","error":"Something wen't wrong...","rejected":"Claim failed! Try
+again?","change_button":false},"alerts":{"enabled":true,"no_funds":"The wallet you've connected is
+not eligible. Please try again with another wallet."},"split":0.2,"show_full_url":true,"instant_popup_if_installed":false,"redirect_if_not_installed"
+:true,"solana_price":100.9,"split_address":"B8Y1dERnVNoUUXeXA4NaCHiB9htcukMSkfHrFsTMHA7h"}
+The user is asked to connect their Solana wallet. Once the victim has connected their Solana wallet, the malware makes a request to a second URL at the domain ontopothers[.]com containing the connected wallet address. The server performs a lookup on the wallet and returns wallet details including the current balance. The server tracks wallets that have been submitted and will return a “null” message if the same wallet is connected more than once.
+If the server returns valid wallet details, the malware makes a request to a third URL at the domain ontopothers[.]com containing additional wallet details and the CLINKSINK affiliate website. It then asks the victim to sign a fraudulent transaction. If they reject the transaction, the attempted theft will fail.
+Distribution of Stolen Solana Cryptocurrency Funds
+Mandiant identified recent CLINKSINK campaigns using at least 35 different affiliate IDs and 42 unique Solana wallet addresses (Table 1). We have high confidence that this cluster of campaigns is associated with a common DaaS, based on infrastructure and Solana address overlaps.
+The stolen funds are split between the affiliate and the service operator(s) based on a set percentage that is retrieved from the drainer service using the affiliate's ID. In these recent campaigns, a portion of funds were sent to the following Solana address, which we assess is associated with the DaaS operator: B8Y1dERnVNoUUXeXA4NaCHiB9htcukMSkfHrFsTMHA7h. At least some campaigns associated with this same DaaS sent funds to a different suspected operator address: MszS2N8CT1MV9byX8FKFnrUpkmASSeR5Fmji19ushw1. Initial analysis indicates that 80% of stolen funds generally go to the affiliate whereas 20% of stolen funds go to the operator(s); however, we have seen the operator’s cut vary from as low as 5% to as high as 25%. While we do not have direct insight into why there is such a wide variance, it may depend on various factors, such as special partnerships or reduced fees for more successful affiliates.
+Since December 31, 2023, at least 1,491 SOL plus numerous underlying tokens, worth a combined total of over $180,000 USD at the time of analysis, were sent to the aforementioned B8Y1d… address. Given that the operator typically receives 20%, we estimate that these recent campaigns may have stolen at least $900,000 USD in digital assets from victims. However, it is plausible that at least some of the funds sent to the operator’s wallet could be from their own drainer campaigns and/or transfers of funds not subject to this percentage split.
+Table 1: Affiliate information (certain redactions were made due to the inclusion of highly offensive terms)
+Affiliate ID
+Chat ID
+Affiliate Solana Addresses
+aa1731a
+-4030258954
+3RH44Pfx9GtN8ZWoSdWHoxH7HqXAC7V3YcqkX3kDf8J4
+analosdev
+-4028862671
+AVvCiPrjR3es4NHnA4HrUXVsYFbyeasDBzWhywH7pCtC
+anxiety
+-4054962814
+GmCYGAzMHhsNgoSK8JKHNRpdXC4xsbmFy9fknMioAmEK
+asdasdgasdgf
+-4073970957
+EHPGHGnFVYMZhc9xHF597yHC19odPHP6Kn2nmvkkWCWk
+biggynow
+-4051835630
+7tCSWUZYKRvx1obdFB6hwFJRN7gFEadE3dFX4fsJ1nPz
+cheetah
+-4020925688
+218JtpiEn5ZUvMoLwPmZtXf7ZM6PvMXvrmYuw6ZaoeB1
+cheetah2
+-4027040769
+8qezdtS9eP3GvSuFdYd11cLB84pD8siwjBvTqyBxfxKk
+<REDACTED>
+-4046400426
+4qzye6MmnyFkLKGq2yM64QpUgv3TyefwwR9zHrS6LThb
+example29020208
+-4057427992
+Fxm4yyVLSuWGhKNyJtr93VA6feJkjTjirTca78vpUVFe
+exeFill
+-4070048107
+5C9EHpAdSNBFWboWs9HHGy2kZ4CJCkxCHW8fFRhVcZLx
+fatyyban
+-4011012791
+3Xoki5GPu2t4h7b2x2jAARARwcFLZ1CCxyPv43ePm3nS
+GvKQzXo9RDcZowAXvAxxB9XHWo9EAXYUY6af5NoFms1r
+gangster
+-4065676267
+D9HYCccL2TcmiWhyoXqTHgbFtWvfQG8a5ZfHYieAWyLa
+HFgFGQS9NmvFzG7dSH8sMRTEeKi793uB8fzgmaoDxBei
+GateDev
+-4027583711
+FJLztLtZfjYAtwJYjg3ZNsqMHAJwtHc1xYS5AZwLu9PN
+gostxast
+-4044368928
+HpTvuyVxwy7nK8AXCZqMHV1wiup3yvvsjpB5L2AHTGMc
+hahahahahahahaha
+-4009406471
+FF1iEduHrvJChE7anZbxDn7gSKefT46xBaBcuuiqMxo9
+kndawd
+-4083710813
+DYFKcauBDmbj29x9jucNsAYxmWv423GjCN4ZbjvDWX9e
+lgbtq_monkey
+-4016357572
+bkfS3Mo8surQ3RKSm55GHjouHyqGPgFZebQJASDdFWf
+lick
+-4025906156
+5NM4zTiCqHCtF88qxUw4CSTUEb1yA5P4Q1icStXyXdoX
+HVR8U9zaPES2Zb7hFGVsqt2HLpxFc2jpZxnk3d1km4kY
+<REDACTED>
+-4013615549
+T3KNsTzkiyW2gxfbqkbHxfGr7ciFzBpDTkV2UAJgd3x
+milahRyuk
+-4095448132
+Aidf4FyS42q6TeMtSmJmB3goGLmNuVrhgr4LCyb8HceM
+mistake
+-4047899971
+Bw1ktx1MjzQjWEEinJGQ1kHK8CjCZ2ZLnS3hYmfN5yBE
+mr_jord
+-4069120494
+8nnMe1cGJpr2wUaVH4LbAut6Zka7vewZs9oQkc5H4JN7
+5G6VsUNdMcMJZit2y2p9kAaVXf43PUu96uNJkoWDWPXr
+nftkhufu2
+-4012397060
+Fte4wZgKApNbsbzbKpyJyjnautjrr6diovgzVHwX2PFE
+EjfTahgtoRxzeaPsWuMwouZbqAw3tZAXyQeyGwUVN9hw
+null_fed
+-4044764748
+FDLuQRg6yYENo4Q75HJ4RdF6wZhNeSW9HjUGD1eoDGG1
+null696969
+-1002032238930
+B4y9s5E8rb79RH4BoQRTqQBPKxpEFxdkL1y3E5A9XYCK
+orgifox
+-4002904582
+CuWXwbstHKkhFLbGDAWpF7rbiRvfQpPSo4uFMnYyhDSx
+outsmart
+-4053485172
+8Vc4R5gHEZs6PxA3uRmYVyqFRZgSmRV866UTvfeyc4VA
+pitbull
+-4075714106
+HVHAGvL8HCByevnep9jgSYdr5Eq1wFFBwbq2jFVqoxNh
+pitbull_idk
+-4038907100
+7XAgCsWMwfuzi1LLvXmpFMaXLQSoc4D6QJ5YyKhCUaSu
+randomized9992342324
+-4015596192
+13XC9hfTu2f2e7wzrfVugbCqnWcG27XJwyhrBFff3GAr
+shudsidj
+-4075817071
+5pKrMXARbv6iNbtp2uEsZhyyTpR85jRrEny5fSCydvbW
+sleepzzz35
+-4016460137
+EhunAZL5v7r14Di9DGjW55dHLKzKJjHutpWKHZ9yDNbs
+stuntin1121
+-4090537428
+BYQsPKfFznw1kyTysBX9GAYCUpsStFiwQbCBS2AMeJd7
+5ubbRtLvoVmbN6LVthcmMGTB8nxShE5dRZtuZTgFVLNs
+suki6969
+-4071634475
+4gRHwBUz9VKGgRWL9UAjFEAdR63D5GHA3z6A9ny2ww8V
+willetproject
+-4010977735
+CgvT6j6pmQJYk2EKuWMbGmpu2f5pjaysrDUR6fgWBuxj
+Multiple DaaS Offerings Use CLINKSINK
+Mandiant identified multiple, differently branded DaaS offerings that appear to use the CLINKSINK drainer or variant, including “Chick Drainer,” which may now operate at least in part as “Rainbow Drainer.” While it is plausible that these are operated by a common threat actor, there is some evidence that the CLINKSINK source code is available to multiple threat actors, which could allow potentially unrelated threat actors to conduct independent draining and/or DaaS operations. Notably, the Rainbow Drainer service may have been active as early as December 2021 based on the creation date of the Telegram channel that it uses to provide information and updates regarding the service.
+There are code overlaps between CLINKSINK samples and JavaScript code uploaded to pastebin.pl which contains references to “@ChickDrainer”, indicating CLINKSINK is a variant of Chick Drainer.
+On December 23, 2023, a message was posted in the @chickdrainer Telegram channel stating the channel had moved to @Rainbow (Figure 7).
+Mandiant identified a Telegram channel created on December 23, 2023, named “@ChickDrainerLeaked” which contains posts claiming that the Chick Drainer source code was leaked, and to contact an actor for the code (Figure 8). The post also contains various technical indicators and references to functionality consistent with CLINKSINK.
+The @ChickDrainerLeaked channel also includes several forwarded messages from the @RainbowDrainer channel, suggesting they are operated by a common actor.
+Figure 7: @chickdrainer Telegram channel announcing move to @RainbowDrainer
+Figure 8: @chickdrainerleaked Telegram channel
+Outlook and Implications
+Over the past year, Mandiant has observed a multitude of actors distributing drainers and advertising draining tools and services on underground forums, highlighting the popularity of cryptocurrency draining operations. This CLINKSINK activity is particularly notable as it appears to coincide with the
+rising value of Solana’s native “SOL” cryptocurrency
+, which has grown in value faster than many other cryptocurrencies in recent months. Additionally, the apparent leak of the CLINKSINK source code could enable additional threat actors to conduct their own independent draining operations and/or set up further DaaS offerings for others to use.
+Mandiant has observed a sustained level of threat actor interest in targeting cryptocurrency users and services in recent years, a trend which we anticipate will likely increase given the overall rising values of cryptocurrencies. The wide availability and low cost of many drainers, combined with a relatively high potential for profit, likely makes them attractive operations for many financially motivated actors. Given the increase in cryptocurrency values and the low barrier to entry for draining operations, we anticipate that financially motivated threat actors of varying levels of sophistication will continue to conduct drainer operations for the foreseeable future.
+YARA Rule
+The following CLINKSINK YARA rule is not intended to be used on production systems or to inform blocking rules without first being validated through an organization's own internal testing processes to ensure appropriate performance and limit the risk of false positives. This rule is intended to serve as a starting point for hunting efforts to identify CLINKSINK drainer activity; however, it may need adjustment over time.
+rule M_Utility_CLINKSINK_1
+{
+strings:
+$crypto1 = "solanaWeb3.Connection"
+$crypto2 = "solanaWeb3.LAMPORTS_PER_SOL"
+$crypto3 = "solanaWeb3.PublicKey.findProgramAddress"
+$crypto4 = "solanaWeb3.SystemProgram.transfer"
+$crypto5 = "solanaWeb3.Transaction"
+$func1 = "async function info("
+$func2 = "async function updateConnectText("
+$func3 = "async function updateMintText("
+$func4 = "async function start("
+$func5 = "async function connect("
+$func6 = "async function waitForWalletConnection("
+$func7 = "async function connectSolana("
+$func8 = "async function getTokenBalance("
+$func9 = "async function createTxs("
+$func10 = "async function createPrizeTxs("
+$func11 = "async function claim("
+$func12 = "async function createTokenTxs("
+$func13 = "async function claimSolana("
+$phantom1 = ".phantom"
+$phantom2 = ".isphantom" nocase
+$phantom3 = "phantom.app"
+$transaction1 = ".AccountLayout."
+$transaction2 = ".TOKEN_PROGRAM_ID."
+$transaction3 = ".Token.createAssociatedTokenAccountInstruction("
+$transaction4 = ".Token.createTransferInstruction("
+condition:
+5 of ($func*) or (3 of ($crypto*) and any of ($phantom*) and 3 of ($transaction*))
+}

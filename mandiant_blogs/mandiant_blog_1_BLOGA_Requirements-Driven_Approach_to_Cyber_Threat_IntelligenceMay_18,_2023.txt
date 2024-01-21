@@ -1,0 +1,31 @@
+Cyber threat intelligence (CTI) serves a broad purpose: to inform, advise, and empower stakeholders within an organization. Successful CTI functions invariably put stakeholder intelligence requirements at the heart of their mission statement. But, any CTI team can and should adopt a requirements-focused approach.
+In our report,
+A Requirements-Driven Approach to Cyber Threat Intelligence
+, we outline what it means to be requirements-driven in practice. We offer actionable advice on how intelligence functions can implement and optimize such an approach within their organizations.
+Implementing a requirements-driven approach to CTI has never been more important. In a recent
+Mandiant global survey,
+we found that while 96% of security decision-makers believe it is important to understand which threats could be targeting their organization, 79% of respondents make decisions without adversary insights the majority of the time. With operationalizing threat intelligence posing a challenge for many security functions, a requirements-driven approach to CTI introduces essential building blocks for a thriving intelligence capability within an organization.
+All cyber security functions and CTI teams operate in resource-constrained environments. Security practitioners must therefore be pragmatic and selective when pursuing new initiatives, which ultimately represent an opportunity cost.
+Yet, even for security teams that are already feeling stretched, taking the time to implement a requirements-driven approach will ultimately optimize resources, balance competing demands, and maximize efficiency.
+A Requirements-Driven Framework
+A requirements-driven approach is best understood as a cycle or process. This is similar, in many respects, to the threat intelligence lifecycle. However, the intelligence lifecycle is often presented in an overly abstract way and without deeper engagement on how each stage of the process works in practice.
+CTI teams must define their processes in further depth to build a more pragmatic understanding of how their workflow operates in practice. The framework used in our report outlines several core pillars in detail including:
+Stakeholder analysis:
+capturing consumers of threat intelligence across an organization, including their roles, tasks, challenges, and how CTI can help.
+Intelligence requirements:
+identifying a qualified need to collect, analyze, produce or disseminate threat intelligence.
+A
+cyber threat profile:
+providing vital context on the most relevant threats to an organization’s sector, industry and region.
+Ground-Truth Ready
+One of the biggest challenges to incorporating any framework or approach is execution. However, a requirements-driven approach is achievable and straightforward to implement.
+To help make a requirements-driven approach a reality, we emphasize a pragmatic approach that speaks to the ground truth of CTI functions. Our report contains:
+Practical advice on how to build out a requirements-driven approach from the ground up
+Suggestions for gathering effective feedback from stakeholders on CTI products
+Templates you can fill in to capture both stakeholder profiles and intelligence requirements
+Leveraging the Expertise of Mandiant’s Intelligence Capability Development
+Mandiant has a dedicated Intelligence Capability Development (ICD) team that works directly with organizations to help build and mature their internal Intelligence functions. Our engagements span a variety of contexts, ranging from building government agencies intelligence functions from scratch to enhancing the overall CTI maturity of private sector organizations.
+This cumulative experience equips Mandiant with a unique perspective on the characteristics of top-performing CTI teams and how to build them. Through working with intelligence programs across a range of industries and regions, we have learned that a requirements-driven approach is one of the best investments a CTI program can make. It creates a solid foundation for not just the CTI team, but also sets the broader cyber security function on a path to success.
+Access the full
+A Requirements-Driven Approach To Cyber Threat Intelligence
+report now.

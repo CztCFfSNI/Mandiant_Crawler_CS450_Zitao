@@ -1,0 +1,148 @@
+The insider threat is a multifaceted challenge that represents a significant cybersecurity risk to organizations today. Some are malicious insiders such as employees looking to steal data or sabotage the organization. Some are unintentional insiders such as employees who make careless mistakes or fall victim to phishing attacks.
+If you need a refresher on what insider threats are or their impact, please refer to our previous blog posts:
+Insider Threat: The Dangers Within
+Insider Threat: Impact Studies
+Identifying insider threats is becoming increasingly important. Malicious insiders often carry out their operations over time, taking steps to hide their activity and remain undetected. This makes it particularly difficult to detect and prevent these types of threats. In fact, malicious insider threat activity often goes undetected and unreported.
+Unintentional insiders, for example, may accidentally misconfigure systems, modify data, lose portable devices, share confidential information, or fail to follow security policies. This can lead to data breaches, financial losses, reputational damage, and even regulatory violations. Any of these can put an organization at risk.
+In a recent study,
+Tessian
+found that employees across different industries who have contributed to building knowledge at an organization have admitted to downloading, saving, or sending work-related documents to their personal accounts before leaving or after being dismissed from their jobs. The key element to note here is the sense of ownership that employees felt over the items they created while on the job. This can be construed as their motivation, and even though there was no malicious intent involved, these employees in a way ended up becoming unintentional insiders. Such insiders can put an organization at risk because they may now be in possession of confidential or proprietary data. If their personal devices are compromised or lost, this data could fall into the wrong hands.
+Figure 1: % of employees who say they've
+downloaded, saved, or sent work-related documents
+to their personal accounts before leaving or after being dismissed from a job (
+source
+)
+Taking the same study into account, consider reviewing the data from a threat profile perspective. You would quickly notice that the top industries most at risk of insider threats are technology, business, consulting and management, and financial services. These are the industries where most of the innovation and development of proprietary technology, data, and strategy takes place. As a result, employees in these industries often have access to highly sensitive information.
+Attackers don't need sophisticated attacks to obtain proprietary data. Instead, they target employees who already have access to this data inside the organization. Attackers typically reach out to employees via email, phone, or social media, and offer them large financial incentives to support them in their attacks. Per a study conducted by
+Hitachi
+, this engagement trend has been increasing, from 48% in 2021 to 65% in 2022.
+Here are some reasons why attackers target employees:
+Employees have access to sensitive data and systems.
+Employees are more likely to trust someone who is already inside the organization.
+Employees are more likely to make mistakes, which attackers can exploit.
+Attackers can use a variety of methods to manipulate employees, including:
+Phishing attacks
+— Attackers send emails that appear to be from a legitimate source such as a company executive or a government agency. The emails may contain links to malicious websites or attachments that contain malware.
+Social engineering attacks
+— Attackers use psychological tricks to manipulate employees into giving them sensitive information or performing actions that compromise the organization's security.
+Bribery and extortion
+— Attackers may offer employees financial incentives or threaten them with blackmail in order to get them to cooperate.
+The increase in insider threat engagement is concerning, but it is important to note that not all employees who are contacted by attackers will be compromised. Many employees are aware of the risks of insider threats and will report suspicious activity to their employers.
+Why Is It Important for Organizations to Understand Insider Types and Their Motivations?
+Organizations that understand insider types and their motivations can better detect and prevent insider attacks. For example, organizations can educate employees about the different types of insider threats and the signs or symptoms of malicious activity. Organizations can also implement security controls to make it more difficult for insiders to steal or expose sensitive data.
+Identifying insider threats is not a binary process. Insiders can be malicious, lack the skills to do their jobs properly, or be victims of coercion. Thus, it is important to understand the different types of insider threats and the vectors that are most applicable to your organization.
+Some examples of insider threat vectors:
+Malicious insiders
+— Malicious insiders may steal or sabotage data for personal gain, revenge, or to benefit a competitor.
+Unintentional insiders
+— Unintentional insiders may accidentally expose data due to carelessness or lack of training.
+Compromised insiders
+— Compromised insiders may be forced to act maliciously due to blackmail or extortion.
+Negligent insiders
+— Negligent insiders may make mistakes that lead to data breaches or other security incidents.
+Organizations need to improve their ability to detect insider activity. This can be done through a combination of reactive and proactive measures. Reactive detection involves monitoring system logs and other data sources for suspicious activity. This can be done using security information and event management (SIEM) tools and other security tools. Proactive detection involves hunting for anomalous insider behavior that may not be detected by security controls. A combination of reactive and proactive detection measures is the best way to detect insider activity. By using both approaches, organizations can reduce the risk of insider attacks.
+This blog post is designed to provide you with security tools and log sources that can be used to identify anomalous insider behavior as well as a threat hunting approach to adopt when developing the proactive capability to hunt for insider threats.
+Tooling
+The Business Case for Insider Detection
+In today's society, individuals have a wide range of personal beliefs, and ethics are often subjective. For example, some people believe that the work product they create belongs to them and that they are entitled to keep a copy for future use. This may include things like their email mailbox, client lists, or other company documents. If an employee leaves a company and takes copies of their work product with them, it can be harmful to the company. For example, the employee may share the work product with a competitor, or they may use it to start their own business. This can damage the company's reputation and competitive advantage.
+Creating a business case for organizational leadership is imperative. To create a business case for insider threat management, it is important to:
+Identify the specific insider threat risks that your organization faces. Consider your industry, the type of data that you store and process, and the size and structure of your organization.
+Quantify the potential costs of insider threats. This could include the cost of data breaches, financial losses, reputational damage, and regulatory violations.
+Identify the specific security controls and processes that you need to mitigate insider threats. This may include things like user behavior analytics (UEBA), data loss prevention (DLP), and insider threat training.
+Estimate the cost of implementing and operating these security controls and processes.
+Compare the cost of implementing and operating these security controls and processes to the potential costs of insider threats.
+Once you have developed a business case, it is important to present it to your leadership in a way that is clear, concise, and persuasive. Be sure to highlight the specific risks that your organization faces and the benefits of implementing insider threat management controls and processes.
+There Must Be a Tool for That…Right?
+Many organizations instinctively reach for technical solutions when faced with problems. Research has shown that employers who enforce
+strict controls can actually increase the risk of employee misbehavior
+. A strictly technical approach is often ineffective because the problem is not simply a technical gap that a tool can fix, but rather a people and process problem.
+Practitioners often jump to solving the problem without first preparing, which can lead to ineffective solutions. It is rare to see an organization with security and employee policies that address the consequences of violations.
+Here are some of reasons why organizations should avoid jumping to technical solutions:
+Technical solutions can be expensive and time-consuming to implement.
+Technical solutions can be complex and difficult to manage.
+Technical solutions may not be effective in addressing the root cause of the problem.
+Technical solutions can create new security vulnerabilities.
+Instead of jumping to technical solutions, organizations should focus on understanding the root cause of the problem, and developing solutions that address it. This may involve changing people's behavior, improving processes, or implementing new security policies.
+Legal and Privacy Considerations
+When legal, HR, and leadership are not aligned on insider threat cases, it can have disastrous consequences and create litigation risk. Unprepared organizations may descend into chaos when an insider threat is discovered, and the consequences for the individual involved may be determined by their identity and relationship with leadership. Much has been discussed within the HR field surrounding
+consistency in approach and application
+. An individual or case by case approach creates a legal minefield where one employee may receive preferential treatment over another, and it can undermine an insider threat program before it even gets off the ground.
+When conducting due diligence for employee monitoring software, it is important to consider the privacy laws of the country where the employee resides, not just the country where the company is headquartered. For example, a U.S.-based corporation must comply with Canadian privacy laws if the employee resides and works in Canada.
+A good example that applies is that Canadian employees have a reasonable right to privacy that extends to their work. In certain jurisdictions, case law has established that
+employers must have a good faith basis to infringe on this privacy right
+. This means that data loss prevention (DLP) tooling that constantly monitors employee screens would violate the employee's expectation of privacy.
+If an employer does choose to use DLP tools to monitor employee activity, they should take the following steps to protect employee privacy:
+Develop a clear and concise policy that explains how DLP tools will be used to monitor employee activity.
+Notify employees in advance that DLP tools will be used to monitor their activity.
+Limit the scope of the monitoring to what is necessary to protect the company's data.
+Provide employees with a way to opt out of being monitored.
+Implement appropriate security measures to protect the data collected by DLP tools.
+Use Case Development
+Organizations can generate use cases for insider threat detection in a variety of ways. One approach is to use existing tools and data sources to identify potentially problematic behavior. For example, investigators can analyze email security filters, web usage logs, firewall logs, and endpoint security logs to identify indicators of insider threats.
+Here are some specific examples of how investigators can use these data sources to generate use cases:
+Email security filters: Investigators can look for emails that contain sensitive data being sent to unauthorized recipients or for emails that are unusually large or complex.
+Web usage logs: Investigators can look for employees who are visiting websites that are known to be associated with malware distribution or phishing attacks.
+Firewall logs: Investigators can look for unusual network activity, such as employees who are accessing servers or applications that they do not normally access or who are transferring large amounts of data to external devices.
+Endpoint security logs: Investigators can look for anomalous activity on employee devices, such as the installation of unauthorized software or the modification of system files.
+In addition to using existing tools and data sources, organizations can also generate use cases by interviewing security experts and employees. Security experts can provide insights into the latest insider threat trends and tactics, while employees can provide insights into the specific insider threat risks that their organization faces.
+Using Tools to Generate Use Cases
+Email
+Email is an essential business tool, but it can also be a source of insider threats. Unintentional insiders may use email to create risk for their organizations without realizing it. For example, we have investigated many cases where insiders have transmitted files containing sensitive data, such as credit card numbers, personal identifiable information (PII), and corporate secrets, to their personal email accounts.
+An instance of this particular insider threat emerged in the initial stages of the COVID-19 pandemic. During this time, an employee at a large organization chose to conduct all their work using their personal home computer instead of the corporate-issued system. Unaware of the security implications, the employee proceeded to email their work files in plain text to their personal email account.
+Endpoint Detection and Response
+Endpoint detection and response (EDR) tools provide visibility across a large number of systems and can provide visibility into potential insider activity. Custom Alerts can be created to detect large amounts of data structuring, unauthorized cloud storage tools that could be used to exfiltrate data, or illegal activities such as piracy. EDR alerts provide threat hunters with clues to follow and investigate further.
+Web/Proxy Logs
+Web proxy logs can provide organizations with data that can help identify possible insider threats. For example, identifying employees that are using unauthorized cloud hosting services. At minimum, such activity is indicative of employees not complying with organization standards and guidelines, and at maximum it could be indicative of a possible insider threat where an employee(s) may be transferring corporate data to their personal cloud repository.
+Web Filter/Proxy Logs serve as invaluable tools for investigators in uncovering various illicit activities, ranging from malicious streaming service usage, illegal downloads, and software piracy. Insider risks to an organization go beyond financial and reputational harm; they can often entangle the organization in criminal investigations. Web logs provide an effective means of detecting both malicious and criminal activities occurring from the enterprise network.
+Remote Access Software
+We have observed some examples where threat groups have bribed employees for access to enterprise systems. Employees are instructed to install remote access software on their company-provided laptop, and the threat group utilizes the system and remote access software to exfiltrate data using the File Transfer function. Another example involved an organization where a newly hired employee installed remote access software and began exfiltrating data using the file transfer capability of the remote access software. It was later determined that the new hire was part of a crime group.
+Enterprise Firewall
+Firewall logs are a great investigation tool for intrusion and network compromise analysis. They can also be utilized to discover insider threats within an organization. Frequency analysis that begins with users transferring the most data can be used in context with other evidence to support further investigation into a user’s activity. The following analysis can help identify anomalous insider activities:
+Anomalies in access patterns
+Data exfiltration
+Suspicious outbound connections
+Unusual protocols or ports from employee system
+Connections to or from suspicious IP addresses
+Insider Blind Spots — Biases
+Many business leaders fail to grasp the existence of a cultural subconscious bias, wherein it is commonly believed that all wrongdoers reside outside the organization while all the virtuous individuals are found within. Unfortunately, this perception is far from reality.
+When malicious actors are eventually discovered, people are often surprised by the culprit. Robert Hanssen was an FBI agent who spied for the Russian government for over 20 years before being discovered. Organizations often have a confidence bias that overestimates their ability to discover employees who have malicious intent based on behavior.
+Malicious insiders frequently employ charm and charisma to mask their true intentions, capitalizing on human susceptibility to be swayed by those they hold affection for. Conversely, individuals can easily fabricate negative narratives about those they despise. To evade psychological traps, it is essential to rely on scientific methodologies and procedures. Insider threat hunting methodologies should not be grounded in mere suspicions and perceptions, but rather in concrete detections and patterns.
+Threat Hunting
+Proactive detection involves hunting for anomalous insider behavior that may not be detected by security controls alone. This can be done using a variety of techniques, such as:
+User behavior analytics (UEBA): UEBA tools analyze user behavior patterns to identify anomalies. For example, UEBA tools can detect if an employee is suddenly accessing unusual files or systems.
+Machine learning (ML): ML models can be trained to identify insider threats. For example, ML models can be trained to identify patterns of behavior that are associated with insider attacks.
+Human intelligence: Security analysts can also be used to proactively hunt for insider threats. For example, security analysts can review system logs and other data sources for suspicious activity.
+It is important to note that no single detection measure is perfect. Insiders are often sophisticated and may be able to evade detection. Organizations should therefore implement a layered security approach that includes multiple detection measures.
+Organizations should also regularly test their detection measures to ensure that they are effective. This can be done by conducting red team exercises or by using penetration testing tools.
+An approach to hunting for insider threats is as follows:
+Define your insider threat profile. What are the most likely insider threat scenarios that your organization faces? Consider the following factors:
+Your industry
+The type of data that your organization stores and processes
+Your organization's size and structure
+Your organization's security culture
+Develop a threat model for an insider that should identify the following:
+Assets: What are the assets that your organization has that are most valuable to insiders? This could include customer data, financial data, intellectual property, and trade secrets.
+Actors: Who are the potential insider threats? This could include current and former employees, contractors, and vendors.
+Capabilities: What are the capabilities of the potential insider threats? This could include their technical skills, their access to systems and data, and their knowledge of your organization's security policies and procedures.
+Motivations: What are the motivations of the potential insider threats? This could include financial gain, revenge, or espionage.
+Identify your data sources. What data sources can you use to identify anomalous insider behavior? This may include:
+Security information and event management (SIEM) logs
+User behavior analytics (UEBA) data
+Access control logs
+Identity and access management (IAM) logs
+System logs
+Application logs
+Email logs
+File logs
+Network traffic logs
+Assess and scope your hunt missions and develop your hunting hypotheses. What are the specific patterns of behavior that you are looking for? For example, you might look for:
+Failed login attempts
+Unusual access to sensitive data
+Large transfers of data to external devices
+Changes to system permissions
+Attempts to disable security controls
+Acquire the relevant data and implement your hunting queries. Use your hunting hypotheses to develop queries that you can use to search your data sources for anomalous behavior. You can use a variety of tools to implement your hunting queries, such as SIEM tools, UEBA tools, and scripting languages.
+Analyze your findings. Review the results of your hunting queries to identify potential insider threats. Look for patterns of behavior that are inconsistent with normal user activity.
+Investigate your findings. Investigate any potential insider threats to determine if they are legitimate. This may involve interviewing employees, reviewing additional data sources, and conducting forensic analysis.
+Take action. Take appropriate action to mitigate any insider threats that you identify. This may involve disciplinary action, termination of employment, or reporting the incident to law enforcement.
+It is important to note that threat hunting is a continuous process. You should regularly review your insider threat profile and develop new hunting hypotheses as you learn more about the type of insider threats that your organization faces.
